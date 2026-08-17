@@ -6,12 +6,11 @@ import { Panel } from "@/components/ui/Card";
 import { KpiTile } from "@/components/ui/KpiTile";
 import { Badge } from "@/components/ui/Badge";
 import { useAdminActivity } from "@/components/shell/AdminActivityContext";
-import { tenants, connectors } from "@/lib/mock-data";
+import { tenants } from "@/lib/mock-data";
 
 export default function PlatformDashboardPage() {
   const { activity } = useAdminActivity();
   const activeTenants = tenants.filter((t) => t.status === "active").length;
-  const availableConnectors = connectors.filter((c) => c.availability === "available").length;
 
   return (
     <DesktopFrame>
@@ -24,14 +23,11 @@ export default function PlatformDashboardPage() {
         <div className="flex flex-wrap gap-3">
           <KpiTile value={tenants.length} label="Total tenants" />
           <KpiTile value={activeTenants} label="Active tenants" tone="success" />
-          <KpiTile value={connectors.length} label="Catalogue connectors" />
-          <KpiTile value={`${availableConnectors} / ${connectors.length}`} label="Connectors available" />
         </div>
 
         <div className="flex flex-wrap items-stretch gap-4">
           <div className="flex min-w-80 flex-2 flex-col gap-3">
             <QuickCard href="/platform/tenants" title="Tenants" desc="Provision tenants and review domain, status and connector enablement." />
-            <QuickCard href="/platform/connectors" title="Connectors" desc="Master catalogue of verification, payment and communication connectors." />
 
             <Panel className="p-4.5">
               <strong className="text-[13px]">Tenant status</strong>

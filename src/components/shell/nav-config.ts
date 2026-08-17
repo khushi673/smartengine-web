@@ -37,7 +37,6 @@ export const NAV_GROUPS = [
     items: [
       { href: "/platform", title: "Platform dashboard" },
       { href: "/platform/tenants", title: "Tenants" },
-      { href: "/platform/connectors", title: "Connectors" },
     ],
   },
 ] as const;

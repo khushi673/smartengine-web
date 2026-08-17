@@ -26,7 +26,7 @@ const groups = [
   {
     title: "Oblavo Admin",
     device: "Desktop-first",
-    desc: "Platform-wide dashboard for tenant provisioning and the connector catalogue shared across every bank tenant.",
+    desc: "Platform-wide dashboard for tenant provisioning and cross-tenant oversight.",
     href: "/platform",
     cta: "See platform administration",
   },

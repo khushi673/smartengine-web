@@ -6,6 +6,7 @@ import { PhoneFrame } from "@/components/ui/DeviceFrame";
 import { Button } from "@/components/ui/Button";
 import { ProgressSteps } from "@/components/ui/ProgressSteps";
 import { Field, Input, Select } from "@/components/ui/Field";
+import { Card } from "@/components/ui/Card";
 import { useTenantTheme } from "@/components/shell/TenantThemeContext";
 
 const STRUCTURES = [
@@ -28,6 +29,16 @@ export default function BusinessDetailsPage() {
         <h1 className="text-[19px]">Tell us about your business</h1>
       </div>
       <ProgressSteps total={6} current={2} />
+
+      <Card flat className="flex items-start gap-2.5 border-[var(--info-text)]/30 bg-[var(--info-bg)]">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="mt-0.5 shrink-0" aria-hidden="true">
+          <circle cx="10" cy="10" r="7" stroke="var(--info-text)" strokeWidth="1.5" />
+          <path d="M10 9v4M10 6.5h.01" stroke="var(--info-text)" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+        <span className="text-[12.5px] text-[var(--t-ink,var(--ink))]">
+          We recognized this business as an existing Meridian Bank customer — some details below are pre-filled from your relationship record.
+        </span>
+      </Card>
 
       <Field label="Legal business name">
         <Input defaultValue="Al Noor Trading LLC" />

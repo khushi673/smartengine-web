@@ -77,7 +77,12 @@ export default function CaseQueuePage() {
               return (
                 <TrClickable key={c.id} onClick={() => router.push(`/ops/queue/${c.id}`)}>
                   <Td className="tabular-nums">{c.ref}</Td>
-                  <Td>{c.business}</Td>
+                  <Td>
+                    <div className="flex items-center gap-2">
+                      <span>{c.business}</span>
+                      {c.existingCustomer && <Badge tone="info">Existing customer</Badge>}
+                    </div>
+                  </Td>
                   <Td><CaseStatusBadge status={c.status} /></Td>
                   <Td>
                     {mismatches > 0 ? (

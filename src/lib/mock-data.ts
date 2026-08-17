@@ -55,6 +55,7 @@ export interface Case {
   status: CaseStatus;
   ageHours: number;
   assignee: string | null;
+  existingCustomer: boolean;
   verification: VerificationCheck[];
   documents: CaseDocument[];
   timeline: TimelineEvent[];
@@ -94,6 +95,7 @@ export const cases: Case[] = [
     status: "under_review",
     ageHours: 24,
     assignee: "S. Khan",
+    existingCustomer: true,
     verification: [
       { field: "Licence expiry", applicantEntered: "12 Mar 2027", extracted: "12 Mar 2027", state: "verified", source: "Authority registry" },
       { field: "Emirates ID expiry", applicantEntered: "04 Jun 2028", extracted: "04 Jun 2027", state: "mismatch", source: "Third-party provider" },
@@ -125,6 +127,7 @@ export const cases: Case[] = [
     status: "info_requested",
     ageHours: 96,
     assignee: null,
+    existingCustomer: false,
     verification: [
       { field: "Licence expiry", applicantEntered: "09 Jan 2026", extracted: "—", state: "unable_to_verify", source: "Authority registry" },
       { field: "Emirates ID expiry", applicantEntered: "21 Nov 2029", extracted: "21 Nov 2029", state: "verified", source: "Third-party provider" },
@@ -154,6 +157,7 @@ export const cases: Case[] = [
     status: "ready_for_handoff",
     ageHours: 48,
     assignee: "R. Osei",
+    existingCustomer: true,
     verification: [
       { field: "Licence expiry", applicantEntered: "30 Sep 2027", extracted: "30 Sep 2027", state: "verified", source: "Authority registry" },
       { field: "Emirates ID expiry", applicantEntered: "15 Feb 2030", extracted: "15 Feb 2030", state: "verified", source: "Third-party provider" },
@@ -183,6 +187,7 @@ export const cases: Case[] = [
     status: "submitted",
     ageHours: 6,
     assignee: "S. Khan",
+    existingCustomer: false,
     verification: [
       { field: "Licence expiry", applicantEntered: "18 Jul 2027", extracted: "18 Jul 2027", state: "pending", source: "Authority registry" },
       { field: "Emirates ID expiry", applicantEntered: "02 Oct 2028", extracted: "02 Oct 2028", state: "pending", source: "Third-party provider" },

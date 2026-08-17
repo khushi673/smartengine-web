@@ -103,6 +103,7 @@ export function CaseWorkspaceClient({ caseId }: { caseId: string }) {
             <div className="flex items-center gap-2.5">
               <h2 className="text-[19px]">{c.business}</h2>
               <CaseStatusBadge status={c.status} />
+              {c.existingCustomer && <Badge tone="info">Existing customer</Badge>}
             </div>
             <span className="tabular-nums text-[12.5px] text-[var(--muted)]">
               {c.ref} · assigned to {c.assignee ?? "Unassigned"}
