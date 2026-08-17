@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --surface-2: #ffffff;
+  --rail-bg: #0b1f3a;
+  --rail-ink: #c6d1e6;
+  --rail-ink-strong: #ffffff;
+  --rail-active: #15305a;
+  --border: #e3e7ee;
+  --border-strong: #cbd3e0;
+  --ink: #3a4454;
+  --ink-strong: #0b1f3a;
+  --muted: #67728a;
+  --brand: #1f6fff;
+  --brand-strong: #1554d6;
+  --brand-wash: #eaf1ff;
+  --sky: #22b8f5;
+  --success-solid: #17c964;
+  --success-bg: #e4f9ee;
+  --success-text: #0f7a3e;
+  --warning-solid: #e3a008;
+  --warning-bg: #fdf1dc;
+  --warning-text: #8a5a00;
+  --danger-solid: #d6455a;
+  --danger-bg: #fbe7ea;
+  --danger-text: #b23a4e;
+  --info-bg: #e7f3fe;
+  --info-text: #155e9a;
+  --info-solid: #22b8f5;
+  --shadow-card: 0 1px 2px rgba(11, 31, 58, 0.06), 0 1px 1px rgba(11, 31, 58, 0.04);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0b1220;
+    --surface: #111a2c;
+    --surface-2: #141f35;
+    --rail-bg: #070d18;
+    --rail-ink: #93a1be;
+    --rail-ink-strong: #f5f8fc;
+    --rail-active: #1b2b4a;
+    --border: #233252;
+    --border-strong: #31456c;
+    --ink: #c7d0e2;
+    --ink-strong: #f5f8fc;
+    --muted: #8b96aa;
+    --brand: #5c93ff;
+    --brand-strong: #89b1ff;
+    --brand-wash: #132349;
+    --sky: #5ad1fb;
+    --success-bg: #0f2b1f;
+    --success-text: #4ade94;
+    --success-solid: #22c97a;
+    --warning-bg: #332508;
+    --warning-text: #f0b429;
+    --warning-solid: #f0b429;
+    --danger-bg: #33141c;
+    --danger-text: #ff7a90;
+    --danger-solid: #ff7a90;
+    --info-bg: #0f2338;
+    --info-text: #7fd1fb;
+    --info-solid: #5ad1fb;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
 
+/* Meridian Bank sample tenant theme — proves theme tokens swap without redesigning the screen */
+[data-tenant="meridian"] {
+  --t-primary: #0f6b5c;
+  --t-primary-strong: #0c5548;
+  --t-accent: #c9a227;
+  --t-bg: #fbfaf6;
+  --t-surface: #f1eee4;
+  --t-ink: #22301f;
+  --t-ink-strong: #123028;
+  --t-muted: #6b7568;
+  --t-wash: #e7f2ee;
+}
+[data-tenant="oblavo"] {
+  --t-primary: var(--brand);
+  --t-primary-strong: var(--brand-strong);
+  --t-accent: var(--sky);
+  --t-bg: var(--bg);
+  --t-surface: var(--surface);
+  --t-ink: var(--ink);
+  --t-ink-strong: var(--ink-strong);
+  --t-muted: var(--muted);
+  --t-wash: var(--brand-wash);
+}
+
+@theme inline {
+  --font-display: var(--font-manrope), "Plus Jakarta Sans", "Inter", -apple-system, sans-serif;
+  --font-sans: var(--font-manrope), "Plus Jakarta Sans", "Inter", -apple-system, sans-serif;
+  --color-brand: var(--brand);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink-strong);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+[data-tenant] h1, [data-tenant] h2, [data-tenant] h3, [data-tenant] h4 {
+  color: var(--t-ink-strong, var(--ink-strong));
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
